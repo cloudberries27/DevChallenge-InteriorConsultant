@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1,
+  maximum-scale=5"
+    />
+
+    <link rel="icon" href="devchallenges.png" />
+
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://devchallenges.io/"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+    <title>Interior Consultant</title>
+
+    <style>
+      html, body{
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        background-color: black;
+        color: white;
+        font-family: 'Montserrat', sans-serif;;
+      }
+      
+      .material-icons.md-18 { font-size: 18px; }
+      .material-icons.md-24 { font-size: 24px; }
+      .material-icons.md-36 { font-size: 36px; }
+      .material-icons.md-48 { font-size: 48px; }
+
+      .container{
+        max-width: 1200px;
+        padding: 0 2em;
+        margin: 0 auto;
+      }
+      .burger{
+        display: none;
+      }
+      a{
+        color:white
+      }
+      header{
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+      }
+      header .logo{
+        text-transform: uppercase;
+        border: 1px solid white;
+        padding: 10px;
+      }
+      header ul{
+        display: flex
+      }
+      header ul li{
+        list-style: none;
+        margin: 10px;
+      }
+      .active{
+        border-bottom: 2px solid white;
+        font-weight: bold;
+      }
+      section{
+        display: flex;
+        justify-content: space-between;
+        padding-top: 2em;
+      }
+      section .text{
+        height: min-content;
+        margin: 7em 0;
+        max-width: 400px;
+      }
+      section .text h1{
+        font-size: 2em;
+      }
+      section .text p{
+        font-size: 1.5em;
+        line-height: 1.5em;
+      }
+      section .image{
+        display: flex;
+        flex-direction: column;
+      }
+      section .image img{
+        width: 100%;
+        height: auto;
+        max-width: 750px;
+      }
+      section .image .info-card{
+        width: 50%;
+        margin: auto;
+        position: relative;
+        top: -5em;
+        right: -5em;
+        background-color: black;
+        padding: 20px 30px;
+      }
+      section .image .info-card div{
+        display: flex;
+      }
+      section .image .info-card div p{
+        margin: auto 10px;
+      }
+      section .image .info-card div img{
+        border-radius: 50%;
+        width: 50px;
+      }
+      footer{
+        width: 100%;
+        text-align: center;
+      }
+      .overlay {
+          height: 100%;
+          width: 0;
+          right: 0;
+          position: fixed;
+          background-color: black;
+          overflow: hidden;
+          z-index: 1;
+          transition: 0.5s;
+          text-align: center;
+          display: flex;
+      } 
+      .overlay .close {
+          position: absolute;
+          top: 20px;
+          right: 45px;
+      }
+      .overlay ul{
+        margin: auto;
+        padding: 0;
+        list-style: none;
+        line-height: 70px;
+      } 
+      @media screen and (max-width: 1000px){
+        section{
+          flex-direction: column;
+          padding-top: 0;
+        }
+        section .text{
+          max-width: unset;
+          margin-top: 2em;
+        }
+      }
+      @media screen and (max-width: 600px){
+        section .image .info-card h2{
+          font-size: 1em;
+        }
+        nav{
+          display: none;
+        }
+        .burger{
+          display: block;
+          margin: auto 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mobileMenu" class="overlay">
+      <span onclick="closeNav()" class="material-icons md-48 close">close</span>
+      <ul>
+        <li class="active">Home</li>
+        <li>Collection</li>
+        <li>About</li>
+        <li>Contact</li>
+      </ul>
+    </div>
+    <div class="container">
+      <header>
+        <p class="logo">This Interior</p>
+        <span onclick="openNav()" class="material-icons md-48 burger">menu</span>
+        <nav>
+          <ul>
+            <li class="active">Home</li>
+            <li>Collection</li>
+            <li>About</li>
+            <li>Contact</li>
+          </ul>
+        </nav>
+      </header>
+      <section>
+        <div class="text">
+          <h1>Modern Interior</h1>
+          <p>A full-service residential and commercial interior design and staging company 
+            offering professional organizing and eco-services.</p>
+          <a href="#">Read More<span class="material-icons md-18">arrow_right_alt</span></a>
+        </div>
+        <div class="image">
+          <img src="photo1.png" alt="living room"/>
+          <div class="info-card">
+            <div>
+              <img src="photo2.png" alt="Picture of Aliza Webber"/>
+              <p><strong>Aliza Webber</strong> <br/> Interior Designer</p>
+            </div>
+            <h2>Designed in 2020 by <br/> Aliza Webber</h2>
+          </div>
+        </div>
+      </section>
+    </div>
+    <footer>created by <a href="https://devchallenges.io/portfolio/cloudberries27" target="_blank" rel="noreferrer">@cloudberries27</a> - devchallenges.io </footer>
+    <script>
+      function openNav() {
+        document.getElementById(
+          "mobileMenu").style.width = "100%";
+      }
+  
+      function closeNav() {
+        document.getElementById(
+          "mobileMenu").style.width = "0%";
+      }
+    </script>
+  </body>
+</html>
